@@ -6,7 +6,6 @@ cask "ovmb" do
   homepage "https://github.com/iconik-io/oceanus_ovmb"
   version "0.2.3"
 
-  quarantine false
   depends_on cask: "1password-cli"
 
   if OS.mac? && Hardware::CPU.intel?
