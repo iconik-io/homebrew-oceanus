@@ -24,9 +24,9 @@ cask "ovmb" do
 
   binary "ovmb"
 
-  uninstall delete: [
-    "/opt/homebrew/bin/ovmb",
-  ]
+  uninstall_postflight do
+    FileUtils.rm_f "/opt/homebrew/bin/ovmb"
+  end
 
   postflight do
     system "ovmb", "--version"
