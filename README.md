@@ -1,7 +1,7 @@
 # homebrew-oceanus
-Custom Homebrew formulas for Oceanus CLI tools and utilities.
+Custom Homebrew formulas and casks for Oceanus CLI tools and utilities.
 
-This repository hosts custom Homebrew formulas for Oceanus-related command-line tools, making it easy to install and update them via the Homebrew package manager on macOS and Linux.
+This repository hosts custom Homebrew formulas and casks for Oceanus-related command-line tools, making it easy to install and update them via the Homebrew package manager on macOS and Linux.
 
 ## Installation
 
@@ -17,5 +17,5 @@ brew uninstall --cask ovmb
 
 ## Known Issues
 
-[ ] `uninstall` does not remove the symlink, so following `install` command fails. Until a permanent fix you can use the `--force`
+- [ ] `uninstall` does not remove the symlink, so following `install` command fails. Until a permanent fix you can use the `--force`
  
