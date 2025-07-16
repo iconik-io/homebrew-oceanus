@@ -25,6 +25,6 @@ cask "ovmb" do
   binary "ovmb"
 
   postflight do
-    system bin/"ovmb", "--version"
+    system "#{bin}/ovmb", "--version"
   end
 end
