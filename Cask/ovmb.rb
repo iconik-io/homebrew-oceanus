@@ -1,6 +1,7 @@
 require_relative "../lib/private_strategy"
 
-class OvmbF < Formula
+cask "ovmb" do
+  name "ovmb"
   desc "Oceanus VM Bootstrapper"
   homepage "https://github.com/iconik-io/oceanus_ovmb"
   version "0.2.3"
@@ -21,24 +22,13 @@ class OvmbF < Formula
     sha256 "4b2412e71b4d76e73d89c37b0fe17851d328f43b8d8da5c14acbcdcf29d0e16f"
   end
 
-  def install
-    bin.install "ovmbf"
-  end
+  binary "ovmb"
 
-  def caveats
-    <<~EOS
-      To use ovmbf, you must set the HOMEBREW_GITHUB_API_TOKEN environment variable.
+  # Optional:
+  # postflight do
+  #   system_command "/usr/bin/install_name_tool", args: [...]
+  # end
 
-      Please add the following line to your shell configuration file
-      (e.g., ~/.zshrc, ~/.bash_profile, or ~/.config/fish/config.fish):
-
-        export HOMEBREW_GITHUB_API_TOKEN="your_github_personal_access_token"
-
-      You can create a token here: https://github.com/settings/tokens
-    EOS
-  end
-
-  test do
-    assert_match "Usage", shell_output("#{bin}/ovmbf --help", 1)
-  end
+  # If it creates settings or logs:
+  # zap trash: ["~/Library/Logs/mycli", "~/Library/Preferences/com.example.mycli.plist"]
 end

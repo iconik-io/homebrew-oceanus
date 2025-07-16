@@ -1,6 +1,6 @@
 require_relative "../lib/private_strategy"
 
-class Ovmb < Formula
+class OvmbF < Formula
   desc "Oceanus VM Bootstrapper"
   homepage "https://github.com/iconik-io/oceanus_ovmb"
   version "0.2.3"
@@ -22,12 +22,12 @@ class Ovmb < Formula
   end
 
   def install
-    bin.install "ovmb"
+    bin.install "ovmbf"
   end
 
   def caveats
     <<~EOS
-      To use ovmb, you must set the HOMEBREW_GITHUB_API_TOKEN environment variable.
+      To use ovmbf, you must set the HOMEBREW_GITHUB_API_TOKEN environment variable.
 
       Please add the following line to your shell configuration file
       (e.g., ~/.zshrc, ~/.bash_profile, or ~/.config/fish/config.fish):
@@ -39,6 +39,6 @@ class Ovmb < Formula
   end
 
   test do
-    assert_match "Usage", shell_output("#{bin}/ovmb --help", 1)
+    assert_match "Usage", shell_output("#{bin}/ovmbf --help", 1)
   end
 end
