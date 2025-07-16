@@ -6,7 +6,7 @@ cask "ovmb" do
   homepage "https://github.com/iconik-io/oceanus_ovmb"
   version "0.2.3"
 
-  depends_on cask: "1password-cli"
+  depends_on cask: "1password/tap/1password-cli"
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/iconik-io/oceanus_ovmb/releases/download/v0.2.3/oceanus_ovmb_0.2.3_darwin_amd64.tar.gz", using: GitHubPrivateDownloadStrategy
