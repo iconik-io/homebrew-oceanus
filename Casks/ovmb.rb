@@ -24,11 +24,7 @@ cask "ovmb" do
 
   binary "ovmb"
 
-  # Optional:
-  # postflight do
-  #   system_command "/usr/bin/install_name_tool", args: [...]
-  # end
-
-  # If it creates settings or logs:
-  # zap trash: ["~/Library/Logs/mycli", "~/Library/Preferences/com.example.mycli.plist"]
+  postflight do
+    system_command "ovmb", args: ["version"]
+  end
 end
