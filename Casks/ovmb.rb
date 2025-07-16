@@ -24,11 +24,11 @@ cask "ovmb" do
 
   binary "ovmb"
 
-  uninstall_postflight do
-    FileUtils.rm_f "/opt/homebrew/bin/ovmb"
-  end
-
   postflight do
-    system "ovmb", "--version"
+    # This command removes the macOS quarantine attribute, stopping the security warning
+    system_command "xattr", args: ["-d", "com.apple.quarantine", "#{staged_path}/ovmb"]
+    
+    # This command then runs your version check
+    system_command "#{staged_path}/ovmb", args: ["--version"]
   end
 end
