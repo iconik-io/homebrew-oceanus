@@ -6,7 +6,8 @@ This repository hosts custom Homebrew formulas and casks for Oceanus-related com
 ## Installation
 
 ```bash
-brew tap iconik-io/oceanus git@github.com:iconik-io/homebrew-oceanus.git
+brew tap iconik-io/oceanus
+brew tap iconik-io/oceanus git@github.com:iconik-io/homebrew-oceanus.git # or if you prefer the ssh protocol
 
 brew install --cask ovmb
 brew install --cask ovmb@0.2.4
@@ -17,5 +18,5 @@ brew uninstall --cask ovmb
 
 ## Known Issues
 
-- [ ] `uninstall` does not remove the symlink, so following `install` command fails. Until a permanent fix you can use the `--force`
+- [ ] `uninstall` does not remove the symlink, so the following `install` command fails. Until a permanent fix you can use the `--force`
  
