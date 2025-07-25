@@ -39,6 +39,6 @@ cask "ovmb@0.3.2" do
     system_command "xattr", args: ["-d", "com.apple.quarantine", "#{HOMEBREW_PREFIX}/bin/ovmb"], sudo: false
     
     # This command then runs your version check
-    system_command "#{HOMEBREW_PREFIX}/bin/ovmb", args: ["--version"]
+    system_command "#{HOMEBREW_PREFIX}/bin/ovmb", args: ["version"]
   end
 end
