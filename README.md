@@ -10,13 +10,11 @@ brew tap iconik-io/oceanus
 brew tap iconik-io/oceanus git@github.com:iconik-io/homebrew-oceanus.git # or if you prefer the ssh protocol
 
 brew install --cask ovmb
-brew install --cask ovmb@0.2.4
+brew install --cask ovmb@1.2.3
 brew install --cask iconik-io/oceanus/ovmb --force
+
+brew update && brew upgrade ovmb
 
 brew uninstall --cask ovmb
 ```
-
-## Known Issues
-
-- [ ] `uninstall` does not remove the symlink, so the following `install` command fails. Until a permanent fix you can use the `--force`
  
