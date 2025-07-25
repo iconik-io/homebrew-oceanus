@@ -1,6 +1,6 @@
 require_relative "../lib/private_strategy"
 
-cask "ovmb" do
+cask "ovmb@0.3.2" do
   name "ovmb"
   desc "Oceanus VM Bootstrapper"
   homepage "https://github.com/iconik-io/oceanus_ovmb"
