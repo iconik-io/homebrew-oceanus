@@ -1,4 +1,5 @@
 require "download_strategy"
+require "open3"
 
 class GitHubPrivateDownloadStrategy < CurlDownloadStrategy
   def initialize(url, name, version, **meta)
@@ -42,9 +43,28 @@ class GitHubPrivateDownloadStrategy < CurlDownloadStrategy
   end
 
   def set_github_token
-    @github_token = ENV["HOMEBREW_GITHUB_API_TOKEN"]
-    unless @github_token
-      raise CurlDownloadStrategyError, "Environment variable HOMEBREW_GITHUB_API_TOKEN is required."
+    # --- Configuration for 1Password ---
+    vault_name = "iconik - iconik-dev-vault"
+    item_name  = "DevEx-Install-OVMB GitHub Token"
+    field_name = "token"
+
+    # Construct the 1Password secret reference URI
+    op_uri = "op://#{vault_name}/#{item_name}/#{field_name}"
+
+    # Build the full path to the op executable
+    op_executable = "#{HOMEBREW_PREFIX}/bin/op"
+
+    # Execute the 'op' command to read the secret
+    stdout, stderr, status = Open3.capture3(op_executable, "read", op_uri)
+
+    # 🔑 Error handling and token assignment
+    unless status.success?
+      raise CurlDownloadStrategyError, "1Password CLI failed to get token. Error:\n#{stderr}"
+    end
+
+    @github_token = stdout.chomp
+    if @github_token.empty?
+      raise CurlDownloadStrategyError, "Token fetched from 1Password is empty. Check item: '#{item_name}'."
     end
   end
 end
