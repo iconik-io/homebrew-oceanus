@@ -1,4 +1,5 @@
-require_relative "../lib/private_strategy"
+#require_relative "../lib/private_strategy"
+require_relative "private_strategy"
 
 cask "ovmb" do
   name "ovmb"
