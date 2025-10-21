@@ -1,4 +1,6 @@
-require_relative "../lib/private_strategy"
+#require_relative "../lib/private_strategy"
+$LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
+require "private_strategy"
 
 cask "ovmb@0.3.7" do
   name "ovmb"
