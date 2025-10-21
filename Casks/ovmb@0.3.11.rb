@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 require "private_strategy"
 
-cask "ovmb" do
+cask "ovmb@0.3.11" do
   name "ovmb"
   desc "Oceanus VM Bootstrapper"
   homepage "https://github.com/iconik-io/oceanus_ovmb"
