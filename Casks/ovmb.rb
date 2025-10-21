@@ -6,22 +6,22 @@ cask "ovmb" do
   name "ovmb"
   desc "Oceanus VM Bootstrapper"
   homepage "https://github.com/iconik-io/oceanus_ovmb"
-  version "0.3.7"
+  version "0.3.8"
 
   depends_on cask: "1password-cli"
 
   if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/iconik-io/oceanus_ovmb/releases/download/v0.3.7/oceanus_ovmb_0.3.7_darwin_amd64.tar.gz", using: GitHubPrivateDownloadStrategy
-    sha256 "fc08d524cbfaae5effd7d7dd8fc766691b5846a03fb062731f79841f5559d56c"
+    url "https://github.com/iconik-io/oceanus_ovmb/releases/download/v0.3.8/oceanus_ovmb_0.3.8_darwin_amd64.tar.gz", using: GitHubPrivateDownloadStrategy
+    sha256 "48aa2b173533fc72f2cbb11116e712dd89dbcf7f255470bb19f431ae3dd298e6"
   elsif OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/iconik-io/oceanus_ovmb/releases/download/v0.3.7/oceanus_ovmb_0.3.7_darwin_arm64.tar.gz", using: GitHubPrivateDownloadStrategy
-    sha256 "2033b3e3d12175800876aa0e34dd656d214dcf883033fedf255bee447c8d6113"
+    url "https://github.com/iconik-io/oceanus_ovmb/releases/download/v0.3.8/oceanus_ovmb_0.3.8_darwin_arm64.tar.gz", using: GitHubPrivateDownloadStrategy
+    sha256 "ac3bd29531d57501d1915ddc756e9e3203b74cbff847d21bebe2b017937d7348"
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/iconik-io/oceanus_ovmb/releases/download/v0.3.7/oceanus_ovmb_0.3.7_linux_amd64.tar.gz", using: GitHubPrivateDownloadStrategy
-    sha256 "a2495eb91efcbda5e4b49b21352e644a0e76af43ca04c81bb81b1c2c46b7036c"
+    url "https://github.com/iconik-io/oceanus_ovmb/releases/download/v0.3.8/oceanus_ovmb_0.3.8_linux_amd64.tar.gz", using: GitHubPrivateDownloadStrategy
+    sha256 "daf6e6382305072993ede30f39a6a7a25859caac93c355f10b6073d08c65f2b1"
   elsif OS.linux? && Hardware::CPU.arm?
-    url "https://github.com/iconik-io/oceanus_ovmb/releases/download/v0.3.7/oceanus_ovmb_0.3.7_linux_arm64.tar.gz", using: GitHubPrivateDownloadStrategy
-    sha256 "a9a403657f33aa4133920db826f6a03cd2c79a030699777423ccff0225bce250"
+    url "https://github.com/iconik-io/oceanus_ovmb/releases/download/v0.3.8/oceanus_ovmb_0.3.8_linux_arm64.tar.gz", using: GitHubPrivateDownloadStrategy
+    sha256 "0e10eb8fc9d990b73f72a3eb88b85c8295ae3e049054622c731256941e240f53"
   end
 
   # This block explicitly handles the installation of the binary
