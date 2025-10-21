@@ -1,3 +1,4 @@
+# Load the custom download strategy
 require_relative "../lib/private_strategy"
 
 cask "ovmb" do
@@ -7,6 +8,12 @@ cask "ovmb" do
   version "0.3.7"
 
   depends_on cask: "1password-cli"
+
+  # Include the custom download strategy as a resource
+  resource "private_strategy" do
+    url "file://#{File.expand_path("../lib/private_strategy.rb", __FILE__)}"
+    sha256 Digest::SHA256.hexdigest(File.read(File.expand_path("../lib/private_strategy.rb", __FILE__)))
+  end
 
   if OS.mac? && Hardware::CPU.intel?
     url "https://github.com/iconik-io/oceanus_ovmb/releases/download/v0.3.7/oceanus_ovmb_0.3.7_darwin_amd64.tar.gz", using: GitHubPrivateDownloadStrategy
@@ -28,10 +35,26 @@ cask "ovmb" do
     args:       ["#{staged_path}/ovmb", "#{HOMEBREW_PREFIX}/bin/ovmb"],
   }
 
+  # Install the private_strategy.rb file to the lib directory
+  installer script: {
+    executable: "mkdir",
+    args:       ["-p", "#{HOMEBREW_PREFIX}/lib"],
+  }
+
+  installer script: {
+    executable: "cp",
+    args:       ["#{staged_path}/private_strategy.rb", "#{HOMEBREW_PREFIX}/lib/private_strategy.rb"],
+  }
+
   # This block is crucial for brew uninstall and brew upgrade
   uninstall script: {
     executable: "rm",
     args:       ["-f", "#{HOMEBREW_PREFIX}/bin/ovmb"],
+  }
+
+  uninstall script: {
+    executable: "rm",
+    args:       ["-f", "#{HOMEBREW_PREFIX}/lib/private_strategy.rb"],
   }
 
   postflight do
